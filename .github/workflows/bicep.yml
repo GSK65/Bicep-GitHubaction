@@ -19,7 +19,7 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: Bicep-RG001
-        template: ./network.bicep
+        template: ./network01.bicep
         failOnStdErr: false
 
     - name: deploy02 - Deploy vNet002
