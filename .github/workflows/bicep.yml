@@ -19,5 +19,13 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: Bicep-RG001
-        template: ./main.bicep
+        template: ./network.bicep
+        failOnStdErr: false
+
+    - name: deploy02
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: Bicep-RG001
+        template: ./network02.bicep
         failOnStdErr: false
