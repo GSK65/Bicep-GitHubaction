@@ -14,7 +14,7 @@ jobs:
         creds: ${{ secrets.AZ_CLIENT_SECRET }}
 
       # Deploy Bicep file
-    - name: deploy
+    - name: deploy - Deploy vNet001
       uses: azure/arm-deploy@v1
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
@@ -22,10 +22,18 @@ jobs:
         template: ./network.bicep
         failOnStdErr: false
 
-    - name: deploy02
+    - name: deploy02 - Deploy vNet002
       uses: azure/arm-deploy@v1
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: Bicep-RG001
         template: ./network02.bicep
+        failOnStdErr: false
+
+    - name: deploy03-Peering vNets
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: Bicep-RG001
+        template: ./peering.bicep
         failOnStdErr: false
