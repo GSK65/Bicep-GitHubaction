@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on: [push]
+defaults:
+  run:
+    working-directory: prod
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout code
+    - uses: actions/checkout@main
+
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZ_CLIENT_SECRET }}
+
+      # Deploy Bicep file
+    - name: deploy - Deploy vNet001
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: Bicep-RG001
+        template: ./network01.bicep
+        failOnStdErr: false
