@@ -4,23 +4,21 @@ name: Workflow02
 
 # Controls when the workflow will run
 on: [push]
-defaults:
-  run:
-    working-directory: dev
-    
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
 
-      # Checkout code
-    - uses: actions/checkout@main
+        # Checkout code
+      - uses: actions/checkout@main
 
-      # Log into Azure
+        # Log into Azure
 
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZ_CLIENT_SECRET }}
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZ_CLIENT_SECRET }}
 
-    - run: |
-        az deployment group create -f main.bicep -g Bicep-RG001
+      - run: |
+          az deployment group create -f main.bicep -g Bicep-RG001
