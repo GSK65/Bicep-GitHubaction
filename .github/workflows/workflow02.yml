@@ -3,10 +3,14 @@
 name: Workflow02
 
 # Controls when the workflow will run
-on: [push]
+on: 
+ push:
+  paths:
+   - 'dev/**'
+
 jobs:
-  prod-check:
-      if: ${{ github.ref == 'refs/heads/main' }}
+  #prod-check:
+      #if: ${{ github.ref == 'refs/heads/main' }}
      
       runs-on: ubuntu-latest
       steps:
