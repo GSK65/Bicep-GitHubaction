@@ -6,7 +6,7 @@ name: CI
 on: [push]
 defaults:
   run:
-    working-directory: prod
+    working-directory: dev
     
 jobs:
   build-and-deploy:
@@ -27,5 +27,5 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: Bicep-RG001
-        template: ./network01.bicep
+        template: .\dev\network01.bicep
         failOnStdErr: false
