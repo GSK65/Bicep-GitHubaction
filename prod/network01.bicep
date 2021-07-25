@@ -1,5 +1,7 @@
+param prodvnet01 string = 'prod-vnet01'
+
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: 'vnet002'
+  name: prodvnet01
   location: resourceGroup().location
   properties: {
     addressSpace: {
