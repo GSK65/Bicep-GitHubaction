@@ -1,8 +1,11 @@
+
+name: Prod
+
 on: 
  push:
   paths:
    - 'prod/**'
-   
+
 name: Azure ARM
 jobs:
   build-and-deploy:
