@@ -6,41 +6,21 @@ on:
   paths:
    - 'prod/**'
 
-name: Azure ARM
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
+  #prod-check:
+      #if: ${{ github.ref == 'refs/heads/main' }}
+     build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
 
-      # Checkout code
-    - uses: actions/checkout@main
+        # Checkout code
+      - uses: actions/checkout@main
 
-      # Log into Azure
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZ_CLIENT_SECRET }}
+        # Log into Azure
 
-      # Deploy Bicep file
-    - name: deploy - Deploy vNet001
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: Bicep-RG001
-        template: ./network01.bicep
-        failOnStdErr: false
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZ_CLIENT_SECRET }}
 
-    - name: deploy02 - Deploy vNet002 
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: Bicep-RG001
-        template: ./network02.bicep
-        failOnStdErr: false
-
-    - name: deploy03-Peering vNets
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: Bicep-RG001
-        template: ./peering.bicep
-        failOnStdErr: false
+      - run: |
+          az deployment group create -f ./prod/main.bicep -g Bicep-RG001
