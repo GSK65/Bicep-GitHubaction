@@ -1,6 +1,6 @@
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: '$vnet01'
-  location: '$location'
+  name: vnet01
+  location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
