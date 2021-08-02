@@ -25,5 +25,5 @@ jobs:
           creds: ${{ secrets.AZ_CLIENT_SECRET }}
 
       - run: |
-          az deployment group create -f ./dev/main.bicep -g Bicep-RG001 --parameters ./dev/params.json
+          az deployment group create -f ./dev/main.bicep -g Bicep-RG001 --parameters @params.json
           az account show 

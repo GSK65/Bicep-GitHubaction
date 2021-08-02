@@ -1,4 +1,4 @@
-param vnet01 string
+param vnet01 string 
 param location string
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
