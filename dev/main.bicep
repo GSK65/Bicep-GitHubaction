@@ -4,4 +4,4 @@ module nw01 'network01.bicep' = {
     vnet01:''
     location:''
   }
-  }
+  } 
