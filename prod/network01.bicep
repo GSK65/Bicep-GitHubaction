@@ -1,4 +1,4 @@
-param prodvnet01 string = 'prod-vnet01'
+param prodvnet01 string
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   name: prodvnet01
@@ -25,3 +25,5 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
     ]
   }
 }
+
+output prodvnetid string = virtualNetwork.id
