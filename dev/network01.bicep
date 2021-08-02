@@ -1,4 +1,4 @@
-param vnet01 string = 'dev-vnet001'
+param vnet01 string
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   name: vnet01
