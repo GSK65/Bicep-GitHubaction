@@ -26,4 +26,4 @@ jobs:
 
       - run: |
           az deployment group create -f ./dev/main.bicep -g Bicep-RG001 --parameters ./dev/params.json
-          az account show
+          az account show 
