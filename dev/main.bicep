@@ -25,6 +25,6 @@ module net01 'network01.bicep'= {
 
 @batchSize(2)
 resource resourceGroups 'Microsoft.Resources/resourceGroups@2020-06-01' = [for i in range(0,10): {
-  name: 'RG00-{i}'
+  name: 'RG00-${i}'
   location: 'westeurope'
 }]
