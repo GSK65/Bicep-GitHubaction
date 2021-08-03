@@ -3,7 +3,7 @@ targetScope = 'subscription'
 param rgname string = 'RG003'
 param rglocation string = 'westeurope'
 
-resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgname
   location: rglocation
    tags: {
@@ -13,7 +13,7 @@ resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 
 
 module net01 'network01.bicep'= {
-  scope: rg002
+  scope: rg
   name: 'vnetname'
   params: {
     vnetlocation: rglocation
@@ -23,3 +23,8 @@ module net01 'network01.bicep'= {
   
 }
 
+@batchSize(2)
+resource resourceGroups 'Microsoft.Resources/resourceGroups@2020-06-01' = [for i in range(0,10): {
+  name: 'RG00-{i}'
+  location: 'westeurope'
+}]
