@@ -9,7 +9,8 @@
         "value": "westeurope"
       },
       "vnetname":{
-        "value": "vnet01"
+        "value": "${rgname}-vnet01"
+      
       }
     }
   }
