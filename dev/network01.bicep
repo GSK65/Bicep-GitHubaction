@@ -1,9 +1,9 @@
-param vnet01 string 
-param location string
+param vnetname string
+param vnetlocation string
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: vnet01
-  location: location
+  name: vnetname
+  location: vnetlocation
   properties: {
     addressSpace: {
       addressPrefixes: [

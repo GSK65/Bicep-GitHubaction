@@ -25,5 +25,8 @@ jobs:
           creds: ${{ secrets.AZ_CLIENT_SECRET }}
 
       - run: |
-          az deployment group create -f ./dev/main.bicep -g Bicep-RG001 --parameters @main.params.json
-          az account show 
+          az deployment sub create \
+           --name demoSubDeployment \
+           --location westeurope \
+           --template-file ./Dev/main.bicep \
+           --parameters rgName=RG002 rgLocation=westeurope
