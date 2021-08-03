@@ -2,7 +2,6 @@ targetScope = 'subscription'
 
 param rgname string
 param rglocation string = 'westeurope'
-param vnetname string
 
 resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgname
@@ -14,7 +13,7 @@ resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 
 module net01 'network01.bicep'= {
   scope: rg002
-  name: vnetname
+  name: 'vnetname'
   params: {
     vnetlocation: rglocation
     vnetname: '${rgname}-vnet102'
