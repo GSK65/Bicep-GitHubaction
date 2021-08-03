@@ -3,6 +3,8 @@ name: Prod
 
 on: 
  push:
+  branches: 
+   - main 
   paths:
    - 'prod/**'
 
