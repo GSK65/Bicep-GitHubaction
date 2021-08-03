@@ -29,9 +29,9 @@ jobs:
 
       - run: |
           az deployment sub create \
-           --name demoSubDeployment \
+           --name demoDeployment \
            --location westeurope \
            --template-file ./test/main.bicep \
-           --parameters @main.params.json
+           --parameters @main.parameters.json
 
 # --parameters rgname=RG002 rglocation=westeurope
