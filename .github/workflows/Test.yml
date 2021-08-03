@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test
+
+# Controls when the workflow will run
+on: 
+ push:
+  paths:
+   - 'test/**'
+
+jobs:
+  #prod-check:
+      #if: ${{ github.ref == 'refs/heads/main' }}
+     build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
+
+        # Checkout code
+      - uses: actions/checkout@main
+
+        # Log into Azure
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZ_CLIENT_SECRET02 }}
+
+      - run: |
+          az deployment sub create \
+           --name demoSubDeployment \
+           --location westeurope \
+           --template-file ./test/main.bicep \
+           --parameters @main.params.json
+
+# --parameters rgname=RG002 rglocation=westeurope
