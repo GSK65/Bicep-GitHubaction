@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-param rgname string
+param rgname string = 'RG003'
 param rglocation string = 'westeurope'
 
 resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
@@ -22,3 +22,4 @@ module net01 'network01.bicep'= {
   }
   
 }
+
