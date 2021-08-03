@@ -11,6 +11,7 @@ resource rg002 'Microsoft.Resources/resourceGroups@2021-04-01' = {
    }
 }
 
+
 module net01 'network01.bicep'= {
   scope: rg002
   name: 'vnetname'

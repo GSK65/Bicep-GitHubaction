@@ -22,7 +22,7 @@ jobs:
 
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZ_CLIENT_SECRET }}
+          creds: ${{ secrets.AZ_CLIENT_SECRET02 }}
 
       - run: |
           az deployment sub create \
