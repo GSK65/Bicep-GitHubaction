@@ -10,3 +10,4 @@ resource rg001 'Microsoft.Resources/resourceGroups@2021-04-01' = {
     Team : 'Test001'
   } 
 }
+ 

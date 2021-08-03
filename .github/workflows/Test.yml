@@ -29,6 +29,7 @@ jobs:
 
       - run: |
           az bicep upgrade
+          az upgrade
           az deployment sub create \
            --name demoDeployment \
            --location westeurope \
