@@ -5,8 +5,11 @@
       "rgname": {
         "value": "RGTST001"
       },
-      "location": {
+      "location":{
         "value": "westeurope"
+      },
+      "vnetname":{
+        "value": "${rgname}-vnet01"
       }
     }
   }
