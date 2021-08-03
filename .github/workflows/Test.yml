@@ -33,6 +33,6 @@ jobs:
            --name demoDeployment \
            --location westeurope \
            --template-file ./test/main.bicep \
-           ---parameters ./test/main.parameters.json
+           --parameters ./test/main.parameters.json
 
 # --parameters rgname=RG002 rglocation=westeurope
