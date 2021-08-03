@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "rgname": {
-        "value": "RGTST001"
+        "value": "RGTST002"
       },
       "location":{
         "value": "westeurope"
