@@ -19,6 +19,8 @@ module nw01 'network01.bicep'= {
   name: vnetname
   params: {
     vnetname: vnetname
+    vnetlocation: 'westeurope'
+
     
   }
 
