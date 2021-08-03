@@ -29,6 +29,6 @@ jobs:
            --name demoSubDeployment \
            --location westeurope \
            --template-file ./dev/main.bicep \
-
+           --parameters rgname=RG004
 
 # --parameters rgname=RG002 rglocation=westeurope
