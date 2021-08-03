@@ -8,5 +8,5 @@ resource rg001 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
   tags: {
     Team : 'Test001'
-  }
+  } 
 }
