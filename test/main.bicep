@@ -11,4 +11,12 @@ resource rg001 'Microsoft.Resources/resourceGroups@2021-04-01' = {
     env : 'dev'
   } 
 }  
+
+param vnetname string
+
+module nw01 'network01.bicep'= {
+  scope: rg001
+  name: vnetname
+
+  }
   
