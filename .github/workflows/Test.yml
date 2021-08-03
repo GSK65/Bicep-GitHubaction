@@ -28,7 +28,6 @@ jobs:
           creds: ${{ secrets.AZ_CLIENT_SECRET02 }}
 
       - run: |
-          az upgrade --yes
           az bicep upgrade
           az deployment sub create \
            --name demoDeployment \
