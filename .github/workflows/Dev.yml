@@ -28,5 +28,5 @@ jobs:
           az deployment sub create \
            --name demoSubDeployment \
            --location westeurope \
-           --template-file ./Dev/main.bicep \
+           --template-file ./dev/main.bicep \
            --parameters rgName=RG002 rgLocation=westeurope
