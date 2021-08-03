@@ -17,6 +17,10 @@ param vnetname string
 module nw01 'network01.bicep'= {
   scope: rg001
   name: vnetname
+  params: {
+    vnetname: vnetname
+    
+  }
 
   }
   
